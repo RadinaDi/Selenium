@@ -26,12 +26,17 @@ namespace Zalando.Pages.RegistrationPage
 
         public void AssertExistingEmailValidationError()
         {
-            Assert.Equal("The email address entered already exists in our database - try logging in or entering a different email address.", EmailErrorField);
+            Assert.Equal("The email address entered already exists in our database - try logging in or entering a different email address.", this.EmailErrorField.Text);
         }
 
         public void AssertPasswordValidationError(string error)
         {
             Assert.Equal(error, this.PasswordErrorField.Text);
+        }
+
+        public void AssertTermsAndConditionsValidationError()
+        {
+            Assert.Equal("This field is required", this.TermsAndConditionsErrorField.Text);
         }
     }
 }

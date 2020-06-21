@@ -8,7 +8,10 @@ namespace Zalando.Tests
     {
         public BaseTest()
         {
-            this.Driver = new ChromeDriver();
+            //Disabled because of ElementNotInteractableException
+            //ChromeOptions options = new ChromeOptions();
+            //options.AddArgument("--headless");
+            this.Driver = new ChromeDriver(/*options*/);
             this.Driver.Manage().Window.Maximize();
         }
 

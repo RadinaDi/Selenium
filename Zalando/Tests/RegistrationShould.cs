@@ -1,5 +1,4 @@
-﻿using OpenQA.Selenium;
-using Xunit;
+﻿using Xunit;
 using Zalando.Pages.HomePage;
 using Zalando.Pages.RegistrationPage;
 
@@ -77,6 +76,7 @@ namespace Zalando.Tests
             registrationPage.EmailField.SendKeys("radina.di@gmail.com");
             registrationPage.PasswordField.SendKeys("123456");
             registrationPage.JavaScriptClick(registrationPage.TermsAndConditionsField);
+            registrationPage.RegisterButton.Click();
             registrationPage.AssertExistingEmailValidationError();
         }
 
@@ -98,38 +98,13 @@ namespace Zalando.Tests
         [Fact]
         public void ValidateTermsAndConditionsAgreement()
         {
-            this.NavigateToRegistrationView();
+            var homePage = new HomePage(this.Driver);
+            homePage.Open();
+            homePage.NavigateToRegistrationPage();
 
-            var registerButton = this.FindElementByXPath("//form/div[7]/button");
-            registerButton.Click();
-
-            var errorElement = this.FindElementByXPath("//form/div[6]/div/div[2]/div/div/span[2]");
-
-            Assert.Equal("This field is required", errorElement.Text);
-        }
-
-        private void NavigateToRegistrationView()
-        {
-            this.Driver.Navigate().GoToUrl("https://zalando.de");
-
-            try
-            {
-                var acceptCookieButton = this.Wait.Until(d => d.FindElement(By.XPath("//*[@id='uc-btn-accept-banner']")));
-                acceptCookieButton.Click();
-            }
-            catch (StaleElementReferenceException)
-            {
-                var acceptCookieButton = this.Wait.Until(d => d.FindElement(By.XPath("//*[@id='uc-btn-accept-banner']")));
-                acceptCookieButton.Click();
-            }
-
-            var loginMenu = this.Wait.Until(d => d.FindElement(By.XPath("//*[@id='z-navicat-header-root']/header/div[2]/div/div/div/div/z-grid/z-grid-item/div/div[1]/div[3]/div/div[2]/a/span/span")));
-            this.Builder
-                .MoveToElement(loginMenu)
-                .Perform();
-
-            var registerLink = this.Wait.Until(d => d.FindElement(By.XPath("//*[@id='z-navicat-header-root']/header/div[2]/div/div/div/div/z-grid/z-grid-item/div/div[1]/div[3]/div/div[2]/div[1]/div/a[2]")));
-            registerLink.Click();
+            var registrationPage = new RegistrationPage(this.Driver);
+            registrationPage.RegisterButton.Click();
+            registrationPage.AssertTermsAndConditionsValidationError();
         }
     }
 }

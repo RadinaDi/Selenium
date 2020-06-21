@@ -13,7 +13,7 @@ namespace Zalando.Pages.HomePage
         {
             this.Driver.Navigate().GoToUrl("https://zalando.de");
 
-            this.AcceptCookiesOkBitton.Click();
+            this.AcceptCookiesOkButton.Click();
         }
 
         public void NavigateToLoginPage()

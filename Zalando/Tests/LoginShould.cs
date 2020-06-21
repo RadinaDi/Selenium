@@ -4,9 +4,8 @@ using Zalando.Pages.LoginPage;
 
 namespace Zalando.Tests
 {
-    public class ZalandoLoginShould : BaseTest
+    public class LoginShould : BaseTest
     {
-
         [Fact]
         public void BeOpenSuccessfully()
         {
@@ -30,7 +29,7 @@ namespace Zalando.Tests
             var loginPage = new LoginPage(this.Driver);
             loginPage.EmailField.SendKeys(email);
             loginPage.LoginButton.Click();
-            loginPage.AssertEmailValidation(error);      
+            loginPage.AssertEmailValidation(error);
         }
 
         [Theory]

@@ -8,7 +8,7 @@ namespace Zalando.Pages
 {
     public class BasePage
     {
-        public BasePage(IWebDriver driver, int timeoutSec = 3)
+        public BasePage(IWebDriver driver, int timeoutSec = 10)
         {
             this.Driver = driver;
             this.Builder = new Actions(driver);
