@@ -14,8 +14,8 @@ namespace Zalando.Pages
             this.Builder = new Actions(driver);
             this.JsExecutor = (IJavaScriptExecutor)driver;
 
-            var locatior = new RetryingElementLocator(driver, new TimeSpan(0, 0, timeoutSec));
-            PageFactory.InitElements(this, locatior);
+            var locator = new RetryingElementLocator(driver, new TimeSpan(0, 0, timeoutSec));
+            PageFactory.InitElements(this, locator);
         }
 
         protected IWebDriver Driver { get; private set; }
