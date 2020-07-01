@@ -8,6 +8,18 @@ namespace MassimoDutti.Pages.RegistrationPage
         [FindsBy(How = How.XPath, Using = "//*[@id='register']/div/div[1]/h2")]
         public IWebElement Header { get; set; }
 
+        [FindsBy(How = How.XPath, Using = "//*[@id='register']/div/div[2]/form/div[2]/div[1]/input")]
+        public IWebElement FirstNameField { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='register']/div/div[2]/form/div[2]/div[1]/div/span")]
+        public IWebElement FirstNameErrorField { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='register']/div/div[2]/form/div[2]/div[2]/input")]
+        public IWebElement LastNameField { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='register']/div/div[2]/form/div[2]/div[2]/div/span")]
+        public IWebElement LastNameErrorField { get; set; }
+
         [FindsBy(How = How.XPath, Using = "//*[@id='register']/div/div[2]/form/div[1]/div[2]/label")]
         public IWebElement GenderFemale { get; set; }
 
@@ -26,7 +38,7 @@ namespace MassimoDutti.Pages.RegistrationPage
         [FindsBy(How = How.XPath, Using = "//*[@id='register']/div/div[2]/form/div[2]/div[4]/div[2]/ul")]
         public IWebElement PasswordErrorField { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='privacyPolicyAccepted_terms_5']")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='register']/div/div[2]/form/terms-conditions/div/div[1]/div/label")]
         public IWebElement TermsAndConditionsField { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id='register']/div/div[2]/form/terms-conditions/div/div[1]/div/label/div/div/div[3]/span")]

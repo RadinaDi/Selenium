@@ -1,7 +1,5 @@
-﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MassimoDutti.Model;
+using OpenQA.Selenium;
 
 namespace MassimoDutti.Pages.SignInPage
 {
@@ -10,6 +8,13 @@ namespace MassimoDutti.Pages.SignInPage
         public SignInPage(IWebDriver driver)
             : base(driver)
         {
+        }
+
+        public void SignInWith(Account account)
+        {
+            this.EmailField.SendKeys(account.Email);
+            this.PasswordField.SendKeys(account.Password);
+            this.SignInButton.Click();
         }
     }
 }

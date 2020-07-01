@@ -1,4 +1,5 @@
-﻿using MassimoDutti.Pages.HomePage;
+﻿using MassimoDutti.Data;
+using MassimoDutti.Pages.HomePage;
 using MassimoDutti.Pages.SignInPage;
 using Xunit;
 
@@ -9,11 +10,7 @@ namespace MassimoDutti.Tests
         [Fact]
         public void OpenSuccessfully()
         {
-            var homePage = new HomePage(this.Driver);
-            homePage.OpenSite();
-            homePage.SignInLink.Click();
-
-            var signInPage = new SignInPage(this.Driver);
+            var signInPage = this.OpenSignInPage();
             signInPage.AssertHeader();
         }
 
@@ -22,13 +19,9 @@ namespace MassimoDutti.Tests
         [InlineData("Моля, въведете валиден имейл адрес", "abcdefg")]
         public void ValidateEmail(string error, string email)
         {
-            var homePage = new HomePage(this.Driver);
-            homePage.OpenSite();
-            homePage.SignInLink.Click();
-
-            var signInPage = new SignInPage(this.Driver);
-            signInPage.EmailField.SendKeys(email);
-            signInPage.SignInButton.Click();
+            var account = AccountData.NewAccount().WithEmail(email);
+            var signInPage = this.OpenSignInPage();
+            signInPage.SignInWith(account);
             signInPage.AssertEmailValidation(error);
         }
 
@@ -36,14 +29,19 @@ namespace MassimoDutti.Tests
         [InlineData("Това поле е задължително", "")]
         public void ValidatePassword(string error, string password)
         {
+            var account = AccountData.NewAccount().WithPassword(password);
+            var signInPage = this.OpenSignInPage();
+            signInPage.SignInWith(account);
+            signInPage.AssertPasswordValidation(error);
+        }
+
+        private SignInPage OpenSignInPage()
+        {
             var homePage = new HomePage(this.Driver);
             homePage.OpenSite();
             homePage.SignInLink.Click();
 
-            var signInPage = new SignInPage(this.Driver);
-            signInPage.PasswordField.SendKeys(password);
-            signInPage.SignInButton.Click();
-            signInPage.AssertPasswordValidation(error);
+            return new SignInPage(this.Driver);
         }
     }
 }
