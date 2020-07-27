@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StyleCop", "StyleCop", "{B4
 		StyleCop\StyleCop.ruleset = StyleCop\StyleCop.ruleset
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassimoDutti", "MassimoDutti\MassimoDutti.csproj", "{E29D8384-CCE6-4B73-9420-55665E46C119}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MassimoDutti", "MassimoDutti\MassimoDutti.csproj", "{E29D8384-CCE6-4B73-9420-55665E46C119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbvBg", "AbvBg\AbvBg.csproj", "{64BA217C-A9FF-4DFC-929A-7CDBCD6968DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E29D8384-CCE6-4B73-9420-55665E46C119}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E29D8384-CCE6-4B73-9420-55665E46C119}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E29D8384-CCE6-4B73-9420-55665E46C119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64BA217C-A9FF-4DFC-929A-7CDBCD6968DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64BA217C-A9FF-4DFC-929A-7CDBCD6968DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64BA217C-A9FF-4DFC-929A-7CDBCD6968DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64BA217C-A9FF-4DFC-929A-7CDBCD6968DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
