@@ -3,7 +3,7 @@ using OpenQA.Selenium.Interactions;
 using SeleniumExtras.PageObjects;
 using System;
 
-namespace AbvBg.Pages
+namespace Vivacom.Pages.HomePage
 {
     public class BasePage
     {
