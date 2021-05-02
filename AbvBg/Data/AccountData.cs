@@ -18,7 +18,7 @@ namespace MassimoDutti.Data
                 FirstName = random.NextString(maxLength: 256),
                 LastName = random.NextString(maxLength: 256),
                 Gender = (Gender)random.Next(1, 2),
-                AntiSpam = random.NextBool(),
+                AntiSpam = true,
                 User = random.NextString(maxLength: 256),
                 PhoneNumber = random.NextString(maxLength: 9),
                 BirthDate = random.NextBirthDate(),

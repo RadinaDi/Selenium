@@ -30,7 +30,7 @@ namespace AbvBg.Tests
 
         public void ValidateLastName(string error, string lastName)
         {
-            var account = AccountData.NewAccount().WithFirstName(lastName);
+            var account = AccountData.NewAccount().WithLastName(lastName);
             var registrationPage = this.OpenRegistrationPage();
             registrationPage.RegisterWith(account);
             registrationPage.AssertLastNameValidation(error);

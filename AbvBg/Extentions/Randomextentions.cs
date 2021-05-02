@@ -13,10 +13,5 @@ namespace AbvBg.Extentions
             var chars = Enumerable.Repeat(Charset, fixedLength).Select(s => s[random.Next(s.Length)]).ToArray();
             return new string(chars);
         }
-
-        public static bool NextBool(this Random random)
-        {
-            return (random.Next() % 2) != 0;
-        }
     }
 }
